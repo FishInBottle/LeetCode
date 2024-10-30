@@ -1,0 +1,10 @@
+Constraints:
+
+The number of nodes in each linked list is in the range [1, 100].
+0 <= Node.val <= 9
+It is guaranteed that the list represents a number that does not have leading zeros.
+
+一開始只想說把兩個數字抓出來加總，就可以直接處理掉進位問題
+但沒留意到linked list node數是1~100，一般整數型別根本放不下，方向完全錯誤...
+
+做linked list的流程可以多複習
