@@ -26,20 +26,19 @@ public:
         string sum;
 
         chkTimes = (a.length() > b.length()) ? a.length() : b.length();
-        chkTimes++; // Add one more check if carry happened
+        chkTimes++; // Add one more check if carry happens
 
         for (int k = 0; k < chkTimes; k++) {
+            // Sum(a, b, carry) for that digit
             op = 0;
-            if (i >= 0)
+            if (i >= 0) // Error check before operation
                 op += a[i] - '0';
-            if (j >= 0)
+            if (j >= 0) // Error check before operation
                 op += b[j] - '0';
             op += carry;
             carry = 0;
-            // std::cout << "a[" << i << "]=" << a[i] - '0' << endl;
-            // std::cout << "b[" << j << "]=" << b[j] - '0' << endl;
-            // std::cout << "op=" << op << endl;
 
+            // Insert a digit to the head of current string
             switch (op) {
             case 0:
                 if ((i >= 0) || (j >= 0))
@@ -55,14 +54,19 @@ public:
                 carry = 1;
                 break;
 
-            default: //3
+            case 3:
                 sum.insert(0, "1");
                 carry = 1;
                 break;
+
+            default:
+                break;
             }
-            // std::cout << sum << endl;
+
+            // To higher digit with error check
             if (i >= 0)
                 i--;
+            // To higher digit with error check
             if (j >= 0)
                 j--;
         }
